@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alexis Socías — Abogado Penalista Madrid</title>
+<meta name="description" content="Despacho de abogado penalista en Madrid. Especialistas en derecho penal y casos mediáticos de alta complejidad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font-family:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+
+:root{
+  --glass-bg:rgba(255,255,255,0.06);
+  --glass-hover:rgba(255,255,255,0.1);
+  --glass-active:rgba(255,255,255,0.15);
+  --white:rgba(255,255,255,1);
+  --white70:rgba(255,255,255,0.7);
+  --white60:rgba(255,255,255,0.6);
+  --white40:rgba(255,255,255,0.4);
+  --white15:rgba(255,255,255,0.15);
+  --white10:rgba(255,255,255,0.1);
+  --black:#000;
+  --cream:#f0ebe2;
+  --terra:#c4704f;
+  --terra-l:#d4895e;
+  --char:#0e0e0c;
+  --char2:#161614;
+  --char3:#1e1e1b;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--char);color:var(--white);overflow-x:hidden;cursor:none}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--char)}
+::-webkit-scrollbar-thumb{background:var(--terra)}
+
+/* CURSOR */
+#cur{width:7px;height:7px;background:white;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,opacity .3s}
+#curR{width:28px;height:28px;border:1px solid rgba(255,255,255,0.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+
+/* ── LIQUID GLASS MIXIN ── */
+.glass{
+  background:var(--glass-bg);
+  background-blend-mode:luminosity;
+  -webkit-backdrop-filter:blur(16px) saturate(180%);
+  backdrop-filter:blur(16px) saturate(180%);
+  border:none;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,0.12),inset 0 -1px 1px rgba(0,0,0,0.1);
+  position:relative;overflow:hidden;
+}
+.glass::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;
+  background:linear-gradient(180deg,
+    rgba(255,255,255,0.45) 0%,
+    rgba(255,255,255,0.15) 20%,
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 80%,
+    rgba(255,255,255,0.45) 100%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+}
+
+/* ══════════════════════
+   HERO (FULL SCREEN)
+══════════════════════ */
+.hero-wrap{
+  position:relative;width:100%;height:100vh;overflow:hidden;
+}
+.hero-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  z-index:0;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to bottom, rgba(10,10,8,0.35) 0%, rgba(10,10,8,0.1) 40%, rgba(10,10,8,0.55) 80%, rgba(10,10,8,0.9) 100%),
+    linear-gradient(to right, rgba(10,10,8,0.45) 0%, transparent 60%);
+}
+
+/* NAV */
+nav{
+  position:absolute;top:0;left:0;right:0;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 32px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;color:white;
+  font-size:0.95rem;font-weight:600;text-decoration:none;letter-spacing:-0.01em;
+}
+.nav-logo svg{opacity:0.85}
+.nav-pill{
+  display:flex;align-items:center;gap:4px;
+  border-radius:14px;padding:7px 8px;
+}
+.nav-pill-btn{
+  display:flex;align-items:center;gap:3px;
+  padding:7px 14px;border-radius:8px;
+  font-size:0.8rem;font-weight:500;
+  color:var(--white70);background:none;border:none;cursor:none;
+  transition:background .2s,color .2s;
+  white-space:nowrap;
+}
+.nav-pill-btn:hover{color:white;background:var(--glass-hover)}
+.nav-pill-btn.active{color:white;background:var(--glass-active)}
+.nav-pill-btn svg{width:12px;height:12px;margin-top:1px;opacity:0.7}
+.nav-ctas{display:flex;align-items:center;gap:10px}
+.btn-glass{
+  font-size:0.8rem;font-weight:500;color:white;
+  background:none;border:none;cursor:none;
+  padding:9px 18px;border-radius:100px;
+  transition:background .2s;
+}
+.btn-glass:hover{background:var(--glass-hover)}
+.btn-white{
+  font-size:0.8rem;font-weight:600;
+  background:white;color:black;border:none;cursor:none;
+  padding:9px 18px;border-radius:100px;
+  transition:background .2s;
+}
+.btn-white:hover{background:rgba(255,255,255,0.88)}
+
+/* HERO CONTENT */
+.hero-content{
+  position:absolute;bottom:0;left:0;z-index:20;
+  padding:0 48px 64px;max-width:720px;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);margin-bottom:20px;
+}
+.hero-eyebrow span{width:28px;height:1px;background:rgba(255,255,255,0.35);display:inline-block}
+.hero-h1{
+  font-size:clamp(3rem,6vw,5.5rem);font-weight:500;
+  line-height:1.02;letter-spacing:-0.03em;color:white;
+  margin-bottom:20px;
+}
+.hero-h1 em{font-style:italic;font-weight:300;opacity:0.8}
+.hero-p{
+  font-size:0.95rem;font-weight:400;line-height:1.7;
+  color:rgba(255,255,255,0.55);margin-bottom:32px;max-width:480px;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-btn-primary{
+  font-size:0.85rem;font-weight:600;
+  background:white;color:black;
+  padding:13px 28px;border-radius:100px;
+  text-decoration:none;transition:background .2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.hero-btn-primary:hover{background:rgba(255,255,255,0.88)}
+.hero-btn-glass{
+  font-size:0.85rem;font-weight:500;color:white;
+  padding:13px 28px;border-radius:100px;
+  text-decoration:none;transition:background .2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.hero-btn-glass:hover{background:rgba(255,255,255,0.08)}
+
+/* SCROLL INDICATOR */
+.scroll-ind{
+  position:absolute;bottom:28px;right:40px;z-index:20;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.scroll-ind span{
+  font-size:0.55rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);writing-mode:vertical-rl;
+}
+.scroll-line{
+  width:1px;height:48px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0.5),transparent);
+  animation:grow 2s ease-in-out infinite;
+}
+@keyframes grow{
+  0%{transform:scaleY(0);transform-origin:top;opacity:1}
+  49%{transform:scaleY(1);transform-origin:top;opacity:1}
+  50%{transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom;opacity:0}
+}
+
+/* STATS STRIP */
+.stats-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-box{
+  padding:48px 40px;
+  border-right:1px solid rgba(255,255,255,0.06);
+  background:var(--char2);
+  position:relative;overflow:hidden;
+  transition:background .3s;
+}
+.stat-box:last-child{border-right:none}
+.stat-box:hover{background:var(--char3)}
+.stat-big{
+  font-size:3.5rem;font-weight:700;color:white;
+  line-height:1;letter-spacing:-0.04em;margin-bottom:10px;
+}
+.stat-big sup{font-size:1.2rem;vertical-align:super;color:var(--terra);font-weight:600}
+.stat-label{font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+
+/* ══════════════════════
+   CASES SECTION
+══════════════════════ */
+.casos-sec{padding:100px 48px;background:var(--char)}
+.sec-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;gap:32px}
+.sec-label{
+  font-size:0.62rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-label::before{content:'';width:24px;height:1px;background:var(--terra)}
+.sec-h{
+  font-size:clamp(2rem,3.5vw,3.2rem);font-weight:600;
+  line-height:1.05;letter-spacing:-0.03em;color:white;
+}
+.sec-h em{font-style:italic;font-weight:300;color:rgba(255,255,255,0.5)}
+.sec-sub{font-size:0.92rem;color:rgba(255,255,255,0.4);max-width:340px;line-height:1.7}
+.casos-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:3px}
+.caso-card{position:relative;overflow:hidden;display:block;text-decoration:none;background:var(--char3)}
+.caso-main{grid-row:1/3}
+.caso-card img{
+  width:100%;height:100%;min-height:280px;object-fit:cover;display:block;
+  transition:transform .7s cubic-bezier(.16,1,.3,1),filter .4s;
+  filter:grayscale(40%) brightness(0.65);
+}
+.caso-main img{min-height:600px}
+.caso-card:hover img{transform:scale(1.05);filter:grayscale(0%) brightness(0.75)}
+.caso-info{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(14,14,12,.97) 0%,rgba(14,14,12,.15) 55%,transparent 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:32px;gap:10px;
+}
+.caso-pill{
+  align-self:flex-start;
+  font-size:0.58rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--terra);
+  background:rgba(196,112,79,0.12);
+  border:1px solid rgba(196,112,79,0.25);
+  padding:5px 12px;border-radius:100px;
+}
+.caso-title{
+  font-size:1.1rem;font-weight:600;line-height:1.35;color:white;
+  letter-spacing:-0.01em;
+}
+.caso-main .caso-title{font-size:1.65rem}
+.caso-excerpt{font-size:0.84rem;color:rgba(255,255,255,0.5);line-height:1.65;display:none}
+.caso-main .caso-excerpt{display:block}
+.caso-arrow{
+  display:inline-flex;align-items:center;gap:6px;margin-top:4px;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--terra);transition:gap .2s;
+}
+.caso-card:hover .caso-arrow{gap:12px}
+
+/* ══════════════════════
+   VISION (SPLIT GLASS)
+══════════════════════ */
+.vision-sec{
+  display:grid;grid-template-columns:1fr 1fr;min-height:90vh;
+}
+.vision-media{position:relative;overflow:hidden;background:var(--char2)}
+.vision-media img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(20%) brightness(0.8);display:block;
+  transition:transform 8s ease;
+}
+.vision-media:hover img{transform:scale(1.04)}
+.vision-badge{
+  position:absolute;bottom:40px;left:40px;right:40px;
+  border-radius:20px;padding:28px;
+}
+.vision-badge-name{font-size:1.3rem;font-weight:600;color:white;letter-spacing:-0.02em;margin-bottom:5px}
+.vision-badge-role{font-size:0.65rem;font-weight:500;color:var(--terra);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px}
+.vision-badge-tags{display:flex;flex-wrap:wrap;gap:7px}
+.vtag{
+  font-size:0.6rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:5px 12px;border-radius:100px;
+}
+.vision-text{
+  background:var(--cream);
+  padding:80px 72px;
+  display:flex;flex-direction:column;justify-content:center;gap:28px;
+}
+.vision-text .sec-label{color:var(--terra)}
+.vision-text .sec-label::before{background:var(--terra)}
+.vision-text .sec-h{color:var(--char)}
+.vision-text .sec-h em{color:var(--terra);opacity:1}
+.vision-q{
+  font-size:clamp(1rem,1.6vw,1.3rem);font-weight:300;font-style:italic;
+  color:rgba(26,26,20,0.7);line-height:1.8;
+  border-left:3px solid var(--terra);padding-left:22px;
+}
+.vision-body{font-size:0.9rem;color:rgba(26,26,20,0.55);line-height:1.8}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip-dark{
+  font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--terra);background:rgba(196,112,79,0.1);
+  border:1px solid rgba(196,112,79,0.22);
+  padding:6px 14px;border-radius:100px;
+}
+.vision-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  align-self:flex-start;
+  font-size:0.78rem;font-weight:600;
+  background:var(--terra);color:white;
+  padding:12px 24px;border-radius:100px;
+  text-decoration:none;transition:background .2s,transform .2s;
+}
+.vision-cta:hover{background:var(--terra-l);transform:translateY(-2px)}
+
+/* ══════════════════════
+   EQUIPO
+══════════════════════ */
+.equipo-sec{padding:100px 48px;background:var(--char2)}
+.equipo-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:3px;margin-top:64px;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.04);
+}
+.miembro{
+  background:var(--char2);padding:44px 30px 38px;
+  position:relative;overflow:hidden;
+  transition:background .3s;
+}
+.miembro:hover{background:var(--char3)}
+.miembro::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--terra),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.miembro:hover::after{transform:scaleX(1)}
+.m-idx{
+  font-size:0.55rem;font-weight:600;letter-spacing:0.2em;
+  color:rgba(255,255,255,0.15);text-transform:uppercase;
+  margin-bottom:28px;
+}
+.m-init{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(196,112,79,0.1);
+  border:1.5px solid rgba(196,112,79,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;font-weight:700;color:var(--terra);
+  margin-bottom:22px;
+}
+.m-name{font-size:1rem;font-weight:600;color:white;letter-spacing:-0.02em;margin-bottom:5px}
+.m-role{font-size:0.62rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
+.m-bio{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.75}
+
+/* ══════════════════════
+   GLASS NÚMEROS
+══════════════════════ */
+.nums-sec{
+  position:relative;overflow:hidden;
+  min-height:50vh;display:flex;align-items:center;
+}
+.nums-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(0.25) saturate(0.5);
+}
+.nums-overlay{position:absolute;inset:0;background:rgba(14,14,12,0.6)}
+.nums-inner{
+  position:relative;z-index:2;width:100%;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:3px;padding:0 48px;
+}
+.num-glass{
+  padding:52px 36px;border-radius:0;
+}
+.num-big{
+  font-size:4rem;font-weight:700;color:white;
+  line-height:1;letter-spacing:-0.04em;margin-bottom:10px;
+}
+.num-big span{font-size:1.5rem;color:var(--terra);font-weight:400}
+.num-label{font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+
+/* ══════════════════════
+   OPINIONES
+══════════════════════ */
+.opiniones-sec{padding:100px 48px;background:var(--char)}
+.op-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;gap:32px}
+.op-score-box{text-align:right}
+.op-num{font-size:4rem;font-weight:700;color:white;letter-spacing:-0.05em;line-height:1}
+.op-stars{color:var(--terra);font-size:0.9rem;letter-spacing:4px;margin:6px 0}
+.op-slabel{font-size:0.6rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase}
+.op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.op-card{
+  background:var(--char2);padding:40px 32px;
+  display:flex;flex-direction:column;gap:18px;
+  position:relative;overflow:hidden;
+  transition:background .3s;
+}
+.op-card:hover{background:var(--char3)}
+.op-card::after{
+  content:'"';
+  position:absolute;top:-20px;right:20px;
+  font-size:9rem;font-weight:700;
+  color:rgba(255,255,255,0.025);line-height:1;pointer-events:none;
+}
+.op-s{color:var(--terra);font-size:0.75rem;letter-spacing:3px}
+.op-text{
+  font-size:1rem;font-weight:300;font-style:italic;
+  color:white;line-height:1.65;flex:1;letter-spacing:-0.01em;
+}
+.op-author{
+  font-size:0.62rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);
+  padding-top:18px;border-top:1px solid rgba(255,255,255,0.06);
+}
+.op-cta-card{
+  background:var(--terra);padding:40px 32px;
+  display:flex;flex-direction:column;justify-content:center;gap:16px;
+  cursor:none;transition:background .2s;
+}
+.op-cta-card:hover{background:var(--terra-l)}
+.op-cta-card h3{font-size:1.4rem;font-weight:600;color:white;line-height:1.3;letter-spacing:-0.02em}
+.op-cta-arrow{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.75)}
+
+/* ══════════════════════
+   CONTACTO GLASS
+══════════════════════ */
+.contacto-sec{
+  position:relative;overflow:hidden;min-height:100vh;
+  display:flex;align-items:center;
+}
+.contacto-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(0.18) grayscale(60%);
+}
+.contacto-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(14,14,12,0.85) 0%,rgba(14,14,12,0.7) 100%);
+}
+.contacto-inner{
+  position:relative;z-index:2;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;padding:100px 48px;align-items:start;
+}
+.c-info .sec-label{color:rgba(255,255,255,0.5)}
+.c-info .sec-label::before{background:rgba(255,255,255,0.3)}
+.c-info .sec-h{font-size:2.8rem;margin-bottom:20px}
+.c-tagline{font-size:0.92rem;color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:40px;max-width:360px}
+.c-details{display:flex;flex-direction:column;gap:22px}
+.c-row{display:flex;gap:16px;align-items:center}
+.c-icon{
+  width:44px;height:44px;min-width:44px;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;
+}
+.c-text strong{display:block;font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:4px}
+.c-text a,.c-text span{font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;font-weight:400}
+.c-form{border-radius:20px;padding:44px}
+.c-form-title{font-size:1.4rem;font-weight:600;color:white;letter-spacing:-0.02em;margin-bottom:32px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:8px}
+.fg input,.fg textarea,.fg select{
+  width:100%;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  color:white;font-size:0.88rem;font-weight:400;
+  padding:12px 16px;border-radius:10px;outline:none;
+  transition:border-color .2s,background .2s;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{
+  border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.09);
+}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.2)}
+.fg textarea{resize:vertical;min-height:100px}
+.fg select option{background:var(--char2)}
+.btn-submit{
+  width:100%;background:white;color:black;
+  border:none;padding:14px;border-radius:100px;
+  font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  cursor:none;transition:background .2s,transform .2s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:6px;
+}
+.btn-submit:hover{background:rgba(255,255,255,0.88);transform:translateY(-2px)}
+
+/* ══════════════════════
+   FOOTER
+══════════════════════ */
+footer{
+  background:rgba(8,8,6,1);
+  border-top:1px solid rgba(255,255,255,0.05);
+  padding:56px 48px 28px;
+}
+.ft-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;gap:40px;flex-wrap:wrap}
+.ft-logo{font-size:1.05rem;font-weight:600;color:white;letter-spacing:-0.02em;text-decoration:none;display:block;margin-bottom:12px}
+.ft-logo em{font-style:italic;font-weight:300;color:rgba(255,255,255,0.4)}
+.ft-desc{font-size:0.82rem;color:rgba(255,255,255,0.28);line-height:1.7;max-width:280px}
+.ft-cols{display:flex;gap:60px;flex-wrap:wrap}
+.ft-col h5{font-size:0.6rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ft-col a{font-size:0.83rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color .2s}
+.ft-col a:hover{color:white}
+.ft-bot{border-top:1px solid rgba(255,255,255,0.05);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:rgba(255,255,255,0.18);flex-wrap:wrap;gap:8px}
+.ft-dot{display:inline-block;width:5px;height:5px;background:var(--terra);border-radius:50%;margin:0 8px;vertical-align:middle;animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* REVEAL */
+[data-r]{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+[data-r].on{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.1s}
+[data-r][data-d="2"]{transition-delay:.2s}
+[data-r][data-d="3"]{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .equipo-grid{grid-template-columns:repeat(2,1fr)}
+  .op-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-strip{grid-template-columns:repeat(2,1fr)}
+  .nums-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .casos-grid{grid-template-columns:1fr}
+  .caso-main{grid-row:auto}
+  .vision-sec{grid-template-columns:1fr}
+  .vision-media{min-height:50vh}
+  .contacto-inner{grid-template-columns:1fr;gap:48px;padding:72px 32px}
+  nav{padding:16px 24px}
+  .hero-content{padding:0 28px 52px}
+}
+@media(max-width:768px){
+  .nav-pill,.nav-ctas{display:none}
+  .casos-sec,.equipo-sec,.opiniones-sec{padding:72px 24px}
+  .equipo-grid{grid-template-columns:1fr}
+  .op-grid{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr 1fr}
+  .nums-inner{grid-template-columns:1fr 1fr;padding:0 24px}
+  footer{padding:44px 24px 20px}
+  .ft-top{flex-direction:column}
+  .frow{grid-template-columns:1fr}
+  .vision-text{padding:56px 32px}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="curR"></div>
+
+<!-- ══ HERO ══ -->
+<div class="hero-wrap" id="inicio">
+  <video class="hero-video" autoplay muted loop playsinline
+    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_230229_7c9bc431-46cf-489a-948d-e8144d8eb5d4.mp4"
+    onerror="this.style.display='none'">
+  </video>
+  <div class="hero-overlay"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#inicio" class="nav-logo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      <span>Alexis Socías</span>
+    </a>
+
+    <div class="nav-pill glass">
+      <button class="nav-pill-btn active" onclick="scrollTo('#inicio')">Inicio</button>
+      <button class="nav-pill-btn" onclick="scrollTo('#casos')">Casos</button>
+      <button class="nav-pill-btn" onclick="scrollTo('#equipo')">Equipo</button>
+      <button class="nav-pill-btn" onclick="scrollTo('#opiniones')">Opiniones</button>
+    </div>
+
+    <div class="nav-ctas">
+      <button class="btn-glass glass" onclick="scrollTo('#contacto')">Llamar</button>
+      <button class="btn-white" onclick="scrollTo('#contacto')">Consulta gratis</button>
+    </div>
+  </nav>
+
+  <!-- HERO CONTENT -->
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span></span>Despacho Penal · Madrid · ICAM
+    </div>
+    <h1 class="hero-h1">Defensa penal<br><em>sin concesiones</em></h1>
+    <p class="hero-p">Especialistas en derecho penal complejo y casos mediáticos. Tu defensa, en las mejores manos. Primera consulta gratuita y confidencial.</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="hero-btn-primary">
+        Consulta gratuita
+        <svg width="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a href="#casos" class="hero-btn-glass glass">Ver casos →</a>
+    </div>
+  </div>
+
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-box" data-r>
+    <div class="stat-big">20<sup>+</sup></div>
+    <div class="stat-label">Años de experiencia</div>
+  </div>
+  <div class="stat-box" data-r data-d="1">
+    <div class="stat-big">200<sup>+</sup></div>
+    <div class="stat-label">Casos resueltos</div>
+  </div>
+  <div class="stat-box" data-r data-d="2">
+    <div class="stat-big">5</div>
+    <div class="stat-label">Especialistas</div>
+  </div>
+  <div class="stat-box" data-r data-d="3">
+    <div class="stat-big">1<sup>ª</sup></div>
+    <div class="stat-label">Consulta gratis</div>
+  </div>
+</div>
+
+<!-- CASOS -->
+<section class="casos-sec" id="casos">
+  <div class="sec-top" data-r>
+    <div>
+      <p class="sec-label" data-n="01">Actualidad</p>
+      <h2 class="sec-h">Casos <em>destacados</em></h2>
+    </div>
+    <p class="sec-sub">Intervenciones recientes en asuntos penales de alta complejidad y repercusión mediática.</p>
+  </div>
+  <div class="casos-grid">
+    <a href="https://confilegal.com/20250604-el-jurado-declara-culpable-a-micael-da-silva-montoya-por-el-atropello-mortal-de-cuatro-personas-en-una-boda-en-torrejon-de-ardoz/" target="_blank" class="caso-card caso-main" data-r>
+      <img
+        src="https://static.wixstatic.com/media/ed8b8e_0cb5d50b5d8d42c2a0cbb84a3a7004f9~mv2.jpg/v1/fill/w_900,h_1100,al_c,q_80,enc_avif,quality_auto/shutterstock_1898354080.jpg"
+        alt="Torrejón"
+        onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=70'"
+      >
+      <div class="caso-info">
+        <span class="caso-pill">Jurado Popular B· 2025</span>
+        <h3 class="caso-title">El Jurado Popular declara culpable al autor del atropello mortal en la boda de Torrejón de Ardoz</h3>
+        <p class="caso-excerpt">Representamos a una víctima con lesiones físicas y psicológicas. El jurado concluyó que el acusado actuó de forma voluntaria a más de 60 km/h. La Fiscalía solicita prisión permanente revisable.</p>
+        <span class="caso-arrow">Leer noticia →</span>
+      </div>
+    </a>
+    <a href="https://www.lasprovincias.es/sucesos/detienen-dos-hermanos-aeropuerto-manises-buscados-suecia-20260425004517-nt.html" target="_blank" class="caso-card" data-r data-d="1">
+      <img
+        src="https://static.wixstatic.com/media/ed8b8e_1666f002d9924cc19cd9454b052b62ab~mv2.png/v1/fill/w_700,h_420,al_c,q_85,enc_avif,quality_auto/shutterstock_1898354080.png"
+        alt="Manises"
+        onerror="this.src='https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=800&q=70'"
+      >
+      <div class="caso-info">
+        <span class="caso-pill">Penal Internacional · 2026</span>
+        <h3 class="caso-title">Puesta en libertad de dos hermanos detenidos en el aeropuerto de Manises</h3>
+        <span class="caso-arrow">Leer →</span>
+      </div>
+    </a>
+    <a href="https://www.europapress.es/nacional/noticia-juez-invalida-version-rey-cachopo-contra-abogado-acuso-amenazas-muerte-carcel-20230623132029.html" target="_blank" class="caso-card" data-r data-d="2">
+      <img
+        src="https://static.wixstatic.com/media/ed8b8e_d156109f09174bef88d891e792213d17~mv2.webp/v1/fill/w_700,h_420,al_c,q_80,enc_avif,quality_auto/shutterstock_1898354080.webp"
+        alt="Resy del Cachopo"
+        onerror="this.src='https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=800&q=70'"
+      >
+      <div class="caso-info">
+        <span class="caso-pill">Caso Mediático · 2023</span>
+        <h3 class="caso-title">Juez invalida la versión del «Rey del Cachopo» contra el abogado de la acusación</h3>
+        <span class="caso-arrow">Leer →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="vision-sec" id="vision">
+  <div class="vision-media">
+    <img
+      src="https://static.wixstatic.com/media/11062b_f086dcf777904b44bb8338bafd7e825f~mv2.jpg/v1/fill/w_900,h_1100,al_c,q_80,enc_avif,quality_auto/11062b_f086dcf777904b44bb8338bafd7e825f~mv2.jpg"
+      alt="Despacho Alexis Socías"
+      onerror="this.src='https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=700&q=80'"
+    >
+    <div class="vision-badge glass" style="border-radius:16px">
+      <div class="vision-badge-name">Alexis Socías</div>
+      <div class="vision-badge-role">Abogado Penalista · Madrid ·  ICAM</div>
+      <div class="vision-badge-tags">
+        <span class="vtag">Derecho Penal</span>
+        <span class="vtag">Casos Mediáticos</span>
+        <span class="vtag">Sorbonne</span>
+      </div>
+    </div>
+  </div>
+  <div class="vision-text">
+    <div data-r>
+      <p class="sec-label">Nuestra Visión</p>
+      <h2 class="sec-h">El derecho <em>como vocación</em></h2>
+    </div>
+    <blockquote class="vision-q" data-r data-d="1">
+      "Como letrados, hemos participado en numerosos casos penales complejos y mediáticos. Seguimos aprendiendo día a día, porque el ámbito jurídico es un aprendizaje constante, y esa es la grandeza del derecho."
+    </blockquote>
+    <p class="vision-body" data-r data-d="2">
+      En nuestro despacho trabajamos con compromiso total para ofrecer la mejor defensa posible, adaptándonos siempre a las circunstancias específicas de cada cliente y cada caso.
+    </p>
+    <div class="chips" data-r data-d="2">
+      <span class="chip-dark">Derecho Penal</span>
+      <span class="chip-dark">Mediático</span>
+      <span class="chip-dark">Civil</span>
+      <span class="chip-dark">Laboral</span>
+      <span class="chip-dark">Penitenciario</span>
+    </div>
+    <a href="#contacto" class="vision-cta" data-r data-d="3">
+      Hablar con nosotros →
+    </a>
+  </div>
+</section>
+
+<!-- NÚMEROS GLASS sobre video -->
+<div class="nums-sec">
+  <video class="nums-bg" autoplay muted loop playsinline
+    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_230229_7c9bc431-46cf-489a-948d-e8144d8eb5d4.mp4"
+    onerror="this.style.display='none'">
+  </video>
+  <div class="nums-overlay"></div>
+  <div class="nums-inner">
+    <div class="num-glass glass" style="border-radius:16px" data-r>
+      <div class="num-big">20<span>+</span></div>
+      <div class="num-label">Años de experiencia</div>
+    </div>
+    <div class="num-glass glass" style="border-radius:16px" data-r data-d="1">
+      <div class="num-big">200<span>+</span></div>
+      <div class="num-label">Casos resueltos</div>
+    </div>
+    <div class="num-glass glass" style="border-radius:16px" data-r data-d="2">
+      <div class="num-big">5</div>
+      <div class="num-label">Especialistas</div>
+    </div>
+    <div class="num-glass glass" style="border-radius:16px" data-r data-d="3">
+      <div class="num-big">1<span>ª</span></div>
+      <div class="num-label">Consulta gratuita</div>
+    </div>
+  </div>
+</div>
+
+<!-- EQUIPO -->
+<section class="equipo-sec" id="equipo">
+  <div data-r>
+    <p class="sec-label">Equipo</p>
+    <h2 class="sec-h">Nuestros <em>colaboradores</em></h2>
+  </div>
+  <div class="equipo-grid">
+    <div class="miembro" data-r>
+      <div class="m-idx">01 / Colaborador</div>
+      <div class="m-init">JM</div>
+      <div class="m-name">José Miguel Alarcón</div>
+      <div class="m-role">Derecho Social · Fiscal</div>
+      <p class="m-bio">Letrado del ICAM desde 1977. 47 años de trayectoria en derecho social, laboral, fiscal y administrativo sancionador. Cobertura en todo el territorio nacional.</p>
+    </div>
+    <div class="miembro" data-r data-d="1">
+      <div class="m-idx">02 / Colaborador</div>
+      <div class="m-init">OZ</div>
+      <div class="m-name">Oskar Zein</div>
+      <div class="m-role">Penalista Senior</div>
+      <p class="m-bio">Prestigioso penalista con 30 años en activo, especializado en asuntos de gran complejidad y resonancia en los medios de comunicación.</p>
+    </div>
+    <div class="miembro" data-r data-d="2">
+      <div class="m-idx">03 / Colaborador</div>
+      <div class="m-init">PZ</div>
+      <div class="m-name">Pedro Zarcero</div>
+      <div class="m-role">Penalista · Valencia</div>
+      <p class="m-bio">Colegiado ICAV. Especializado en Derecho Penal y Procesal Penal. Colaborador de referencia en la Comunidad Valenciana.</p>
+    </div>
+    <div class="miembro" data-r data-d="3">
+      <div class="m-idx">04 / Acuerdo Internacional</div>
+      <div class="m-init">◈</div>
+      <div class="m-name">Paris 1 · Sorbonne</div>
+      <div class="m-role">Acuerdo Académico</div>
+      <p class="m-bio">Acuerdo con la Faculté de Droit de l'Université Paris 1 Panthéon-Sorbonne. Incorporación de Sigrid Serrano Mellgren, Master 2 en Derecho europeo e internacional.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OPINIONES -->
+<section class="opiniones-sec" id="opiniones">
+  <div class="op-header" data-r>
+    <div>
+      <p class="sec-label">Testimonios</p>
+      <h2 class="sec-h">Lo que dicen<br><em>nuestros clientes</em></h2>
+    </div>
+    <div class="op-score-box">
+      <div class="op-num">5.0</div>
+      <div class="op-stars">★★★★★</div>
+      <div class="op-slabel">Valoración media</div>
+    </div>
+  </div>
+  <div class="op-grid">
+    <div class="op-card" data-r>
+      <div class="op-s">★★★★★</div>
+      <p class="op-text">"Más que un abogado se ha convertido en nuestro socio legal."</p>
+      <div class="op-author">— Cliente satisfecho</div>
+    </div>
+    <div class="op-card" data-r data-d="1">
+      <div class="op-s">★★★★★</div>
+      <p class="op-text">"Un profesional en el que puedes confiar y dejar todo en sus manos. Siempre trabajando para los mejores resultados."</p>
+      <div class="op-author">— Cliente satisfecho</div>
+    </div>
+    <div class="op-cta-card" data-r data-d="2" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">
+      <h3>¿Necesitas representación legal?</h3>
+      <span class="op-cta-arrow">Primera consulta gratuita →</span>
+    </div>
+    <div class="op-card" data-r>
+      <div class="op-s">★★★★★</div>
+      <p class="op-text">"Con él se entiende perfectamente lo que está pasando, ya que el mundo legal es complicado."</p>
+      <div class="op-author">— Cliente satisfecho</div>
+    </div>
+    <div class="op-card" data-r data-d="1">
+      <div class="op-s">★★★★★</div>
+      <p class="op-text">"Se adelanta a tus necesidades. Sabe lo que ocurrirá y antes de que pase ya pone remedio."</p>
+      <div class="op-author">— Cliente satisfecho</div>
+    </div>
+    <div class="op-card" data-r data-d="2">
+      <div class="op-s">★★★★★</div>
+      <p class="op-text">"Lo mejor, la cercanía. Siempre disponible y tratándote como persona, no como un expediente."</p>
+      <div class="op-author">— Cliente satisfecho</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO sobre vídeo con glass -->
+<section class="contacto-sec" id="contacto">
+  <video class="contacto-bg" autoplay muted loop playsinline
+    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_230229_7c9bc431-46cf-489a-948d-e8144d8eb5d4.mp4"
+    onerror="this.style.display='none'">
+  </video>
+  <div class="contacto-overlay"></div>
+  <div class="contacto-inner">
+    <div class="c-info" data-r>
+      <p class="sec-label" style="color:rgba(255,255,255,0.5)">Contacto</p>
+      <h2 class="sec-h">Cuéntanos<br><em style="color:rgba(255,255,255,0.45)">tu caso</em></h2>
+      <p class="c-tagline">Primera consulta gratuita y confidencial. Estamos aquí para ayudarte.</p>
+      <div class="c-details">
+        <div class="c-row">
+          <div class="c-icon glass" style="border-radius:12px">📍</div>
+          <div class="c-text">
+            <strong>Dirección</strong>
+            <span>C/ Agustín de Foxá, 25 · 28036 Madrid</span>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon glass" style="border-radius:12px">📞</div>
+          <div class="c-text">
+            <strong>Teléfono</strong>
+            <a href="tel:913441741">913 441 741</a>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-icon glass" style="border-radius:12px">✉️</div>
+          <div class="c-text">
+            <strong>Email</strong>
+            <a href="mailto:info@lausnet.com">info@lausnet.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="c-form glass" style="border-radius:20px" data-r data-d="1">
+      <p class="c-form-title">Envíanos un mensaje</p>
+      <div class="frow">
+        <div class="fg"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+        <div class="fg"><label>Apellidos</label><input type="text" placeholder="Apellidos"></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
+      <div class="fg"><label>Teléfono</label><input type="tel" placeholder="+34 600 000 000"></div>
+      <div class="fg">
+        <label>Área de consulta</label>
+        <select>
+          <option value="">Selecciona una opción</option>
+          <option>Derecho Penal</option>
+          <option>Derecho Mercantil</option>
+          <option>Derecho Civil</option>
+          <option>Derecho Laboral</option>
+          <option>Derecho Penitenciario</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="fg"><label>Mensaje</label><textarea placeholder="Cuéntanos brevemente tu situación…"></textarea></div>
+      <button class="btn-submit">Enviar consulta →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-top">
+    <div>
+      <a href="#inicio" class="ft-logo">Alexis <em>Socías</em></a>
+      <p class="ft-desc">Despacho de abogados penalistas en Madrid, especializado en derecho penal y casos de alta complejidad y repercusión mediática.</p>
+    </div>
+    <div class="ft-cols">
+      <div class="ft-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#casos">Casos</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#opiniones">Opiniones</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Especialidades</h5>
+        <ul>
+          <li><a href="#contacto">Derecho Penal</a></li>
+          <li><a href="#contacto">Derecho Mercantil</a></li>
+          <li><a href="#contacto">Derecho Civil</a></li>
+          <li><a href="#contacto">Derecho Laboral</a></li>
+          <li><a href="#contacto">Penitenciario</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 Alexis Socías Abogado<span class="ft-dot"></span>Todos los derechos reservados</span>
+    <span>Colegiado ICAM · Madrid</span>
+  </div>
+</footer>
+
+<script>
+// CURSOR
+const dot=document.getElementById('cur'),ring=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+});
+(function loop(){
+  rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,[onclick]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    dot.style.width='14px';dot.style.height='14px';
+    dot.style.background='var(--terra)';
+    ring.style.width='50px';ring.style.height='50px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    dot.style.width='7px';dot.style.height='7px';
+    dot.style.background='white';
+    ring.style.width='28px';ring.style.height='28px';
+  });
+});
+
+// NAV ACTIVE
+function scrollTo(id){
+  document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
+}
+window.addEventListener('scroll',()=>{
+  const btns=document.querySelectorAll('.nav-pill-btn');
+  const sections=['#inicio','#casos','#vision','#equipo','#opiniones','#contacto'];
+  let current='#inicio';
+  sections.forEach(id=>{
+    const el=document.querySelector(id);
+    if(el&&el.getBoundingClientRect().top<160)current=id;
+  });
+  const labels={'#inicio':'Inicio','#casos':'Casos','#vision':'Equipo','#equipo':'Equipo','#opiniones':'Opiniones','#contacto':'Contacto'};
+  btns.forEach(b=>{b.classList.remove('active')});
+  btns.forEach(b=>{
+    if(b.textContent.trim()===labels[current]||
+      (current==='#casos'&&b.textContent==='Casos')||
+      (current==='#equipo'&&b.textContent==='Equipo')||
+      (current==='#opiniones'&&b.textContent==='Opiniones'))
+      b.classList.add('active');
+  });
+});
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:0.1});
+document.querySelectorAll('[data-r]').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
